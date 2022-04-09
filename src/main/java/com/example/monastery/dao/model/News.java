@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class News {
+public class News implements Comparable<News> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,5 +21,8 @@ public class News {
     @JoinColumn(name = "house_id", nullable = false)
     private House house;
 
-
+    @Override
+    public int compareTo(News o) {
+        return date.compareTo(o.getDate());
+    }
 }

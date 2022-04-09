@@ -24,8 +24,13 @@ public class HomeController {
     }
 
     @GetMapping("/news/{id}")
-    public News getNews(@PathVariable Long id) {
-        return newsService.getById(id);
+    public List<News> getNewsByHouse(@PathVariable Long id) {
+        return newsService.getNewsByHouse(id);
+    }
+
+    @GetMapping("/news")
+    public List<News> getNews(@PathVariable Long id) {
+        return newsService.getAllNews();
     }
 
 }
