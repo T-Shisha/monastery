@@ -15,4 +15,6 @@ public class House {
     private String name;
     @OneToMany(mappedBy = "house", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<News> news;
+    @OneToMany(mappedBy = "house", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    private List<User> users;
 }

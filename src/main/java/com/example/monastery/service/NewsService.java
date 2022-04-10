@@ -36,4 +36,8 @@ public class NewsService {
     public void save(News news){
         newsRepository.save(news);
     }
+
+    public boolean isExist(Long id) {
+        return newsRepository.existsById(id);
+    }
 }

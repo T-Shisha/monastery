@@ -18,10 +18,6 @@ public class HomeController {
     @Autowired
     private NewsService newsService;
 
-    @GetMapping
-    public List<House> getClients() {
-        return houseService.getAll();
-    }
 
     @GetMapping("/news/{id}")
     public List<News> getNewsByHouse(@PathVariable Long id) {
