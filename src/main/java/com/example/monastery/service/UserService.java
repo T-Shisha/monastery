@@ -38,9 +38,9 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    public List<User> getAllByHouse(Long id) {
-        return userRepository.findAllByHouse(id);
-    }
+//    public List<User> getAllByHouse(Long id) {
+//        return userRepository.findAllByHouse(id);
+//    }
 
     public boolean checkUserByName(String name) {
         try {

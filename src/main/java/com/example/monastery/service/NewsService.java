@@ -5,9 +5,9 @@ import com.example.monastery.dao.model.News;
 import com.example.monastery.dao.repository.HouseRepository;
 import com.example.monastery.dao.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +34,7 @@ public class NewsService {
         newsRepository.delete(news);
     }
     public void save(News news){
+        news.setDate(LocalDateTime.now());
         newsRepository.save(news);
     }
 

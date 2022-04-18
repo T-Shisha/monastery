@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +14,6 @@ public class House {
     private String name;
     @OneToMany(mappedBy = "house", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<News> news;
-    @OneToMany(mappedBy = "house", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private List<User> users;
+//    @OneToMany(mappedBy = "house", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+//    private List<User> users;
 }
