@@ -6,6 +6,7 @@ import com.example.monastery.dao.repository.HouseRepository;
 import com.example.monastery.dao.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,7 +34,12 @@ public class NewsService {
         News news = getById(id);
         newsRepository.delete(news);
     }
+    public void save(News news, MultipartFile file){
+
+       save(news);
+    }
     public void save(News news){
+
         news.setDate(LocalDateTime.now());
         newsRepository.save(news);
     }
@@ -41,4 +47,6 @@ public class NewsService {
     public boolean isExist(Long id) {
         return newsRepository.existsById(id);
     }
+//    private String uploadPicture(Martip)
+
 }

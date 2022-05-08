@@ -75,18 +75,12 @@ public class AdminController {
 
     @PostMapping("/houses/{id}/news/add")
     public void addNews(@PathVariable Long id, @RequestBody News news, @RequestParam(name="fileField",required=false) MultipartFile fileField) throws IOException {
-        if(fileField==null)
-        {
-            news.setImage(null);
-        }else {
-            news.setImage(fileField.getBytes());
-        }
-        newsService.save(news);
+        newsService.save(news, fileField);
     }
 
     @GetMapping("/houses/{id}/news/{id_news}/delete")
     public void deleteNews(@PathVariable(value = "id") Long id, @PathVariable(value = "id_news") Long id_news) {
-        if (!newsService.isExist(id_news)) {
+        if (newsService.isExist(id_news)) {
             newsService.delete(id_news);
         }
     }

@@ -12,8 +12,8 @@ public interface  NewsMapper {
 
     News convertToEntity(NewsDTO carDTO);
 
-    List<NewsDTO> convertToDTO(List<News> carsEntities);
+    List<NewsDTO> convertToDTO(List<News> newsEntities);
 
-    List<News> convertToEntity(List<NewsDTO> carsDTOs);
+    List<News> convertToEntity(List<NewsDTO> newsDTOs);
 
 }

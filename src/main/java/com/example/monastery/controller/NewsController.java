@@ -8,6 +8,7 @@ import com.example.monastery.service.HouseService;
 import com.example.monastery.service.NewsService;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class HomeController {
+public class NewsController {
     @Autowired
     private HouseService houseService;
     @Autowired
@@ -28,7 +29,7 @@ public class HomeController {
     public List<NewsDTO> getNewsByHouse(@PathVariable Long id) {
         return newsMapper.convertToDTO(newsService.getNewsByHouse(id));
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/news")
     public List<NewsDTO> getNews() {
         return newsMapper.convertToDTO(newsService.getAllNews());

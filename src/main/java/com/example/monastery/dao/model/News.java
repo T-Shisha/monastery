@@ -20,10 +20,7 @@ public class News implements Comparable<News> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "house_id", nullable = false)
     private House house;
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(columnDefinition="longblob", nullable=true)
-    private byte[] image;
+    private String imageLocation;
 
     @Override
     public int compareTo(News o) {
