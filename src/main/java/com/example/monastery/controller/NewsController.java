@@ -1,7 +1,6 @@
 package com.example.monastery.controller;
 
-import com.example.monastery.dao.model.House;
-import com.example.monastery.dao.model.News;
+
 import com.example.monastery.dto.NewsDTO;
 import com.example.monastery.mapper.NewsMapper;
 import com.example.monastery.service.HouseService;
