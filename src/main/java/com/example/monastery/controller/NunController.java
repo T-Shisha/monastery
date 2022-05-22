@@ -15,16 +15,19 @@ public class NunController {
     @Autowired
     private NewsService newsService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/news/{id}/edit/{id_news}")
     public void editNews(@PathVariable(value = "id") Long id, @PathVariable(value = "id") Long id_news, @RequestBody News news) {
         newsService.save(news);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/news/{id}/add")
     public void addNews(@PathVariable Long id, @RequestBody News news) {
         newsService.save(news);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/news/{id}/delete/{id_news}")
     public void deleteNews(@PathVariable(value = "id") Long id, @PathVariable(value = "id") Long id_news) {
         if (!newsService.isExist(id_news)) {
@@ -32,6 +35,7 @@ public class NunController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/news/{id}/edit/{id_news}")
     public News getNewsForEdit(@PathVariable(value = "id") Long id, @PathVariable(value = "id") Long id_news) {
         return newsService.getById(id_news);

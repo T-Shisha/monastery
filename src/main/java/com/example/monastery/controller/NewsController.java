@@ -23,7 +23,7 @@ public class NewsController {
     private NewsMapper newsMapper = Mappers.getMapper(NewsMapper.class);
 
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/news/{id}")
     public List<NewsDTO> getNewsByHouse(@PathVariable Long id) {
         return newsMapper.convertToDTO(newsService.getNewsByHouse(id));
