@@ -18,13 +18,11 @@ public class ReviewController {
     private ReviewService reviewService;
     private ReviewMapper reviewMapper = Mappers.getMapper(ReviewMapper.class);
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/main")
     public List<ReviewDTO> getNews() {
         return reviewMapper.convertToDTO(reviewService.getAllReviews());
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/review")
     public void addReview(@PathVariable Long id, @RequestBody Review review) {
         reviewService.save(review);

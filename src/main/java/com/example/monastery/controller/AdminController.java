@@ -30,7 +30,6 @@ public class AdminController {
     private NewsMapper newsMapper = Mappers.getMapper(NewsMapper.class);
 
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/houses/add")
     public void addHouse(@RequestBody House house) {
         if (!houseService.checkHouseByName(house.getName())) {
@@ -38,7 +37,6 @@ public class AdminController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses/{id}/delete")
     public void deleteHouse(@PathVariable(value = "id") Long id) {
         if (!houseService.isExist(id)) {
@@ -46,7 +44,6 @@ public class AdminController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses")
     public List<House> getHouses() {
         return houseService.getAll();
@@ -65,26 +62,22 @@ public class AdminController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses/{id}/nuns/{id_nun}/delete")
     public void deleteNun(@PathVariable Long id, @PathVariable Long id_nun) {
         if (!userService.isExist(id_nun)) {
             userService.delete(id_nun);
         }
     }
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/news/{id}/edit/{id_news}")
     public void editNews(@PathVariable(value = "id") Long id, @PathVariable(value = "id_news") Long id_news, @RequestBody News news) {
         newsService.save(news);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/houses/{id}/news/add")
     public void addNews(@PathVariable Long id, @RequestBody News news, @RequestParam(name="fileField",required=false) MultipartFile fileField) throws IOException {
         newsService.save(news, fileField);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses/{id}/news/{id_news}/delete")
     public void deleteNews(@PathVariable(value = "id") Long id, @PathVariable(value = "id_news") Long id_news) {
         if (newsService.isExist(id_news)) {
@@ -92,7 +85,6 @@ public class AdminController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses/{id}/news/{id_news}/edit")
     public NewsDTO getNewsForEdit(@PathVariable(value = "id") Long id, @PathVariable(value = "id_news") Long id_news) {
         return newsMapper.convertToDTO(newsService.getById(id_news));
@@ -100,7 +92,6 @@ public class AdminController {
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/houses/{id}/news")
     public List<NewsDTO> getNewsForHouse(@PathVariable(value = "id") Long id) {
         return newsMapper.convertToDTO(newsService.getNewsByHouse(id));
