@@ -24,7 +24,7 @@ public class ReviewController {
     }
 
     @PostMapping("/review")
-    public void addReview(@PathVariable Long id, @RequestBody Review review) {
+    public void addReview(@RequestBody Review review) {
         reviewService.save(review);
     }
 }
