@@ -9,9 +9,7 @@ import com.example.monastery.service.ReviewService;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -24,8 +22,9 @@ public class ReviewController {
     public List<ReviewDTO> getNews() {
         return reviewMapper.convertToDTO(reviewService.getAllReviews());
     }
+
     @PostMapping("/review")
-    public void addReview(@PathVariable Long id, @RequestBody Review review) {
+    public void addReview(@RequestBody Review review) {
         reviewService.save(review);
     }
 }

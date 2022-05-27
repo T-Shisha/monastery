@@ -1,7 +1,6 @@
 package com.example.monastery.controller;
 
-import com.example.monastery.dao.model.House;
-import com.example.monastery.dao.model.News;
+
 import com.example.monastery.dto.NewsDTO;
 import com.example.monastery.mapper.NewsMapper;
 import com.example.monastery.service.HouseService;
@@ -24,12 +23,10 @@ public class NewsController {
     private NewsMapper newsMapper = Mappers.getMapper(NewsMapper.class);
 
 
-
     @GetMapping("/news/{id}")
     public List<NewsDTO> getNewsByHouse(@PathVariable Long id) {
         return newsMapper.convertToDTO(newsService.getNewsByHouse(id));
     }
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/news")
     public List<NewsDTO> getNews() {
         return newsMapper.convertToDTO(newsService.getAllNews());

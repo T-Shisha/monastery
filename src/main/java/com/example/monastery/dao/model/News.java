@@ -3,6 +3,7 @@ package com.example.monastery.dao.model;
 import javax.persistence.*;
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +16,7 @@ public class News implements Comparable<News> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition="TEXT")
     private String text;
     private LocalDateTime date;
     @ManyToOne(fetch = FetchType.LAZY)

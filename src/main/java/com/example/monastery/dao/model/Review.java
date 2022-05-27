@@ -2,10 +2,7 @@ package com.example.monastery.dao.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,6 +12,7 @@ public class Review implements Comparable<Review>  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String author;
+    @Column(columnDefinition="TEXT")
     private String text;
     private LocalDateTime date;
     @Override

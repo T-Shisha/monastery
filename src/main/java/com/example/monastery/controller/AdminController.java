@@ -30,7 +30,6 @@ public class AdminController {
     private NewsMapper newsMapper = Mappers.getMapper(NewsMapper.class);
 
 
-
     @PostMapping("/houses/add")
     public void addHouse(@RequestBody House house) {
         if (!houseService.checkHouseByName(house.getName())) {
@@ -55,6 +54,7 @@ public class AdminController {
 //        return userService.getAllByHouse(id);
 //    }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/houses/{id}/nuns/add")
     public void addNun(@PathVariable Long id, @RequestBody User user) {
         if (!userService.checkUserByName(user.getUsername())) {
